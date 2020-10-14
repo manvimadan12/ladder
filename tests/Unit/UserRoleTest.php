@@ -5,21 +5,20 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\User;
 use App\Role;
+use App\UserRole;
 
 class UserRoleTest extends TestCase
 {
     /** @test */
-    public function that_user_has_a_role()
+    public function user_role_should_belong_to_user_and_role()
     {
+        
+    $userRole = factory(UserRole::class)->create();
 
-    	$user = new User;
-    	$user = factory(User::class)->create([
-    'name' => 'man',]);
-    	$role = new Role;
-    	$role->name='clerk';
+    $userRole->user()->associate(factory(User::class)->create());
+    $userRole->role()->associate(factory(Role::class)->create());
 
-    	$user->roles()->save($role);
-
-        $this->assertEquals(1,$user->roles->count());
+    $this->assertEquals(1 ,$userRole->user()->count());
+    $this->assertEquals(1 ,$userRole->role()->count());
     }
 }
