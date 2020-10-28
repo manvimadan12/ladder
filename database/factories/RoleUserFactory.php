@@ -3,7 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\Role;
 use App\User;
-use App\UserRole;
+use App\RoleUser;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 /*
@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 | model instances for testing / seeding your application's database.
 |
 */
-$factory->define(UserRole::class, function (Faker $faker) {
+$factory->define(RoleUser::class, function (Faker $faker) {
     return [
         'user_id' => function(){
          return factory(User::class)->create()->id;
