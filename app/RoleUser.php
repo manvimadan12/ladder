@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class UserRole extends Model
+class RoleUser extends Pivot
 {
     public function role()
     {
@@ -15,9 +15,3 @@ class UserRole extends Model
         return $this->belongsTo('App\User');
     }
 }
-
-
-
-
-
-

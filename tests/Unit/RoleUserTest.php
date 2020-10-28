@@ -5,15 +5,15 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\User;
 use App\Role;
-use App\UserRole;
+use App\RoleUser;
 
-class UserRoleTest extends TestCase
+class RoleUserTest extends TestCase
 {
     /** @test */
     public function user_role_should_belong_to_user_and_role()
     {
         
-    $userRole = factory(UserRole::class)->create();
+    $userRole = factory(RoleUser::class)->create();
 
     $userRole->user()->associate(factory(User::class)->create());
     $userRole->role()->associate(factory(Role::class)->create());
